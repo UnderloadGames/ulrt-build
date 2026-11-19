@@ -518,7 +518,7 @@ function configDefaults() {
   BUILD_CONFIG[OPENJDK_CORE_VERSION]=""
 
   # The OpenJDK source code repository to build from, e.g. an Temurin repo
-  BUILD_CONFIG[REPOSITORY]=""
+  BUILD_CONFIG[REPOSITORY]="https://github.com/UnderloadGames/jdk.git"
 
   BUILD_CONFIG[ASSEMBLE_EXPLODED_IMAGE]=${BUILD_CONFIG[ASSEMBLE_EXPLODED_IMAGE]:-"false"}
   BUILD_CONFIG[MAKE_EXPLODED]=${BUILD_CONFIG[MAKE_EXPLODED]:-"false"}
@@ -527,7 +527,7 @@ function configDefaults() {
   BUILD_CONFIG[OPENJDK_BUILD_REPO_BRANCH]="master"
 
   # The default adoptium/temurin-build repo uri
-  BUILD_CONFIG[OPENJDK_BUILD_REPO_URI]="https://github.com/adoptium/temurin-build.git"
+  BUILD_CONFIG[OPENJDK_BUILD_REPO_URI]="https://github.com/UnderloadGames/ulrt-build.git"
 
   BUILD_CONFIG[COPY_MACOSX_FREE_FONT_LIB_FOR_JDK_FLAG]="false"
   BUILD_CONFIG[COPY_MACOSX_FREE_FONT_LIB_FOR_JRE_FLAG]="false"
@@ -644,7 +644,7 @@ function configDefaults() {
   BUILD_CONFIG[JVM_VARIANT]=${BUILD_CONFIG[JVM_VARIANT]:-""}
 
   # Any extra config / make args provided by the user
-  BUILD_CONFIG[USER_SUPPLIED_CONFIGURE_ARGS]=${BUILD_CONFIG[USER_SUPPLIED_CONFIGURE_ARGS]:-""}
+  BUILD_CONFIG[USER_SUPPLIED_CONFIGURE_ARGS]="--with-version-opt=ulrt ${BUILD_CONFIG[USER_SUPPLIED_CONFIGURE_ARGS]}"
   BUILD_CONFIG[USER_SUPPLIED_MAKE_ARGS]=${BUILD_CONFIG[USER_SUPPLIED_MAKE_ARGS]:-""}
 
   # Whether to use Temurin's cacerts file (true) or use the file provided by OpenJDK (false)
@@ -680,7 +680,10 @@ function configDefaults() {
   BUILD_CONFIG[DISABLE_ADOPT_BRANCH_SAFETY]=false
 
   # Used in 'release' file for jdk8u
-  BUILD_CONFIG[VENDOR]=${BUILD_CONFIG[VENDOR]:-"Undefined Vendor"}
+  BUILD_CONFIG[VENDOR]=${BUILD_CONFIG[VENDOR]:-"Underload Games"}
+  BUILD_CONFIG[VENDOR_URL]=${BUILD_CONFIG[VENDOR_URL]:-"https://github.com/UnderloadGames/ulrt-build"}
+  BUILD_CONFIG[VENDOR_BUG_URL]=${BUILD_CONFIG[VENDOR_BUG_URL]:-"https://github.com/UnderloadGames/ulrt-build/issues"}
+  BUILD_CONFIG[VENDOR_VM_BUG_URL]=${BUILD_CONFIG[VENDOR_VM_BUG_URL]:-"https://github.com/UnderloadGames/ulrt-build/issues"}
 }
 
 # Declare the map of build configuration that we're going to use
